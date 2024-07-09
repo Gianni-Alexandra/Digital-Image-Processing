@@ -1,0 +1,140 @@
+% !TeX spellcheck = el_EL-ModernGreek
+\documentclass[a4paper,12pt]{article} % This defines the style of your paper
+\usepackage[left=2cm, right=2cm, top=1.50cm, bottom=1.50cm, includeheadfoot]{geometry} 
+
+\usepackage[greek]{babel}
+%\usepackage[T1]{fontenc}
+\usepackage{fontspec}
+%\setmainfont[Mapping=tex-text]{Linux Libertine O} % For Linux
+\setmainfont[Mapping=tex-text]{Times New Roman} % For Windows
+
+% The following two packages - multirow and booktabs - are needed to create nice looking tables.
+\usepackage{tabularray}
+
+% As we usually want to include some plots (.pdf files) we need a package for that.
+\usepackage{graphicx} 
+
+% The default setting of LaTeX is to indent new paragraphs. This is useful for articles. But not really nice for homework problem sets. The following command sets the indent to 0.
+\usepackage{setspace}
+\setlength{\parindent}{0in}
+
+% Package to place figures where you want them.
+\usepackage{float}
+
+% The fancyhdr package let's us create nice headers.
+\usepackage{fancyhdr}
+
+\usepackage[pdfauthor={Alexandra Gianni},
+pdftitle={Project Report},
+pdfcreator={TeX},
+pdfsubject={Digital Image Processing}]{hyperref}
+
+\usepackage{wrapfig}
+%\usepackage{subfigure}
+\usepackage{caption}
+\usepackage[labelformat=simple]{subcaption}
+\renewcommand{\thesubfigure}{\textbf{(\roman{subfigure})}}
+\usepackage{svg}
+\usepackage{siunitx}
+\usepackage{amsmath}
+\usepackage{mathtools}
+
+\hypersetup{
+	colorlinks,
+	citecolor=blue,
+	filecolor=black,
+	linkcolor=black,
+	urlcolor=blue
+}
+
+%\renewcommand{\thesubfigure}{\alph{subfigure}}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% 3. Header (and Footer)
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% To make our document nice we want a header and number the pages in the footer.
+
+\newcommand{\Title}{Project Report}
+\newcommand{\Author}{Alexandra Gianni}
+
+
+\pagestyle{fancy} % With this command we can customize the header style.
+
+\fancyhf{} % This makes sure we do not have other information in our header or footer.
+
+\fancyhead[l]{\footnotesize \Title}
+%\lhead{\footnotesize Lab1 Report}% \lhead puts text in the top left corner. \footnotesize sets our font to a smaller size.
+
+%\rhead works just like \lhead (you can also use \chead)
+\fancyhead[r]{\footnotesize Digital Image Processing}
+%\rhead{\footnotesize ECE327 - Ψηφιακά Συστήματα VLSI} %<---- Fill in your lastnames.
+
+% Similar commands work for the footer (\lfoot, \cfoot and \rfoot).
+% We want to put our page number in the center.
+\fancyfoot[r]{\footnotesize \thepage}
+\renewcommand{\footrulewidth}{0.4pt} % Line at the footer visible
+%\rfoot{\footnotesize \thepage}
+
+\fancypagestyle{first_page}{
+	\fancyhf{}
+	\fancyfoot[R]{\thepage}
+	\renewcommand{\headrulewidth}{0pt}
+	\renewcommand{\footrulewidth}{0.4pt}
+	\vspace{-1cm}
+}
+
+\newcommand{\MathSpace}{\ }
+
+\UseTblrLibrary{booktabs}
+
+\setcounter{secnumdepth}{0}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% 4. Your document
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% Now, you need to tell LaTeX where your document starts. We do this with the \begin{document} command.
+	% Like brackets every \begin{} command needs a corresponding \end{} command. We come back to this later.
+	
+	\begin{document}
+		
+		
+		%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+		%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+		
+		%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+		% Title section of the document
+		%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+		
+		% For the title section we want to reproduce the title section of the Problem Set and add your names.
+		
+		\thispagestyle{first_page} % This command disables the header on the first page. 
+		
+		\begin{tabular}{lr}
+			& \hspace{5.2cm}\raisebox{-\totalheight}{\includegraphics[scale=0.25]{uth-logo.png}} \\ [-15mm]
+			\large \bf Digital Image Processing&  \\
+			University of Thessaly & \\
+			Department of Electrical and Computer Engineering & \\
+			%	\today & \\
+		\end{tabular}
+		
+		\par\noindent\rule{\textwidth}{0.5pt}
+		
+		\vspace*{0.3cm} % Now we want to add some vertical space in between the line and our title.
+		
+		\begin{center} % Everything within the center environment is centered.
+			{\Large \bf \Title} % <---- Don't forget to put in the right number
+			\vspace{2mm}
+			
+			% YOUR NAMES GO HERE
+			{\bf\Author \\ STUDENT ID: 3382} % <---- Fill in your names here!
+			
+		\end{center}  
+		
+		\vspace{0.4cm}
+		
+		% Grafw apo edw kai katw me inputs
+		\input{Sources/Theme.tex}
+		%\input{Sources/askhsh2.tex}
+		
+	\end{document}
